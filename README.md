@@ -1,5 +1,7 @@
 # rn-skia-sketch-canvas
 
+![Demo](https://user-images.githubusercontent.com/19703138/159114200-11d8cda2-eb22-45a6-a3f5-2879f2ce265d.gif)
+
 A React Native component for drawing using Skia renderer. This project is highly influnced by terrylinla's [`react-native-sketch-canvas`](https://github.com/terrylinla/react-native-sketch-canvas). A simple canvas that allows you to draw paths and then export them to images. This project is build on top of `react-native-skia`.
 
 ## Installation
