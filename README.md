@@ -4,11 +4,18 @@ A React Native component for drawing using Skia renderer. This project is highly
 
 ## Installation
 
-As this project depends on `react-native-skia` make sure you install that. Follow [their instructions](https://shopify.github.io/react-native-skia/docs/getting-started/installation)
+As this project depends on `react-native-skia` make sure you install that. Follow [their instructions](https://shopify.github.io/react-native-skia/docs/getting-started/installation) (Supports RN>=0.66)
 
 ```sh
 yarn add rn-skia-sketch-canvas
 ```
+
+## Features
+
+- Supports both iOS and Android.
+- Stroke thickness and color are changable while drawing.
+- Can undo strokes one by one.
+- Export drawing to image (jpg/png/webp).
 
 ## Usage
 
