@@ -1,22 +1,87 @@
 # rn-skia-sketch-canvas
 
-A React Native component for drawing by touching using Skia renderer
+A React Native component for drawing using Skia renderer. This project is highly influnced by terrylinla's [`react-native-sketch-canvas`](https://github.com/terrylinla/react-native-sketch-canvas). A simple canvas that allows you to draw paths and then export them to images. This project is build on top of `react-native-skia`.
 
 ## Installation
 
+As this project depends on `react-native-skia` make sure you install that. Follow [their instructions](https://shopify.github.io/react-native-skia/docs/getting-started/installation)
+
 ```sh
-npm install rn-skia-sketch-canvas
+yarn add rn-skia-sketch-canvas
 ```
 
 ## Usage
 
-```js
-import { multiply } from "rn-skia-sketch-canvas";
+```tsx
+import { ImageFormat } from '@shopify/react-native-skia';
+import React, { useRef, useState } from 'react';
+import { Button, SafeAreaView, StyleSheet, View } from 'react-native';
+import { SketchCanvas, SketchCanvasRef } from 'rn-skia-sketch-canvas';
 
-// ...
+const COLORS = ['red', 'blue', 'green', 'magenta', 'yellow'];
 
-const result = await multiply(3, 7);
+const App = () => {
+  const ref = useRef<SketchCanvasRef>(null!);
+  const [color, setColor] = useState('black');
+  const [strokeWidth, setStrokeWidth] = useState(1);
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <SketchCanvas
+          containerStyle={styles.container}
+          ref={ref}
+          strokeColor={color}
+          strokeWidth={strokeWidth}
+        />
+        <View style={styles.btnContainer}>
+          <Button title="Undo" onPress={ref.current?.undo} />
+          <Button title="Clear" onPress={ref.current?.clear} />
+          <Button
+            title={`Color (${color})`}
+            onPress={() => {
+              const randomIndex = Math.floor(Math.random() * COLORS.length);
+              setColor(COLORS[randomIndex]);
+            }}
+          />
+          <Button
+            title={`Stroke (${strokeWidth})`}
+            onPress={() => {
+              const randomIndex = Math.floor(Math.random() * COLORS.length);
+              setStrokeWidth(randomIndex);
+            }}
+          />
+          <Button
+            title="Base 64"
+            onPress={() => {
+              console.log(ref.current.exportToBase64(ImageFormat.PNG, 50));
+            }}
+          />
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  btnContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+    flexWrap: 'wrap',
+  },
+});
+
+export default App;
 ```
+
+## Todo
+
+- [ ] Add Support for drawing over image.
+- [ ] Add support for syncing canvases.]
+- [ ] Allow export to SVG for paths.
 
 ## Contributing
 
