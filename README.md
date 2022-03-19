@@ -19,6 +19,7 @@ yarn add rn-skia-sketch-canvas
 - Can undo strokes one by one.
 - Export drawing to image (jpg/png/webp).
 - Support for drawing on top of Images/Text
+- Sync 2 or more canvases together
 
 ## Usage
 
@@ -89,7 +90,8 @@ export default App;
 
 ## Todo
 
-- [ ] Add support for syncing canvases.
+- [ ] Write better documentation
+- [ ] Add examples
 - [ ] Allow export to SVG for paths.
 
 ## Contributing
