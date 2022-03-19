@@ -26,6 +26,8 @@ const SketchCanvas = forwardRef<SketchCanvasRef, SketchCanvasProps>(
       strokeColor = STROKE_COLOR,
       strokeStyle = STROKE_STYLE,
       containerStyle,
+      children,
+      topChildren,
     },
     frwdRef
   ) => {
@@ -87,6 +89,7 @@ const SketchCanvas = forwardRef<SketchCanvasRef, SketchCanvasProps>(
 
     return (
       <Canvas style={containerStyle} ref={canvasRef} onTouch={touchHandler}>
+        {children}
         {paths.current.map(({ path, id, color, width, style }) => (
           <Path
             path={path}
@@ -96,6 +99,7 @@ const SketchCanvas = forwardRef<SketchCanvasRef, SketchCanvasProps>(
             style={style}
           />
         ))}
+        {topChildren}
       </Canvas>
     );
   }

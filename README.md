@@ -18,6 +18,7 @@ yarn add rn-skia-sketch-canvas
 - Stroke thickness and color are changable while drawing.
 - Can undo strokes one by one.
 - Export drawing to image (jpg/png/webp).
+- Support for drawing on top of Images/Text
 
 ## Usage
 
@@ -88,8 +89,7 @@ export default App;
 
 ## Todo
 
-- [ ] Add Support for drawing over image.
-- [ ] Add support for syncing canvases.]
+- [ ] Add support for syncing canvases.
 - [ ] Allow export to SVG for paths.
 
 ## Contributing
