@@ -5,19 +5,10 @@ import {
   useCanvasRef,
   useTouchHandler,
 } from '@shopify/react-native-skia';
-import React, {
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+import React, { forwardRef, useImperativeHandle } from 'react';
+import { useSketchPaths } from '../hooks';
 import { STROKE_COLOR, STROKE_STYLE, STROKE_WIDTH } from './constants';
-import {
-  SketchCanvasProps,
-  SketchCanvasRef,
-  SketchPath,
-  ImageFormat,
-} from './types';
+import { SketchCanvasProps, SketchCanvasRef, ImageFormat } from './types';
 
 const SketchCanvas = forwardRef<SketchCanvasRef, SketchCanvasProps>(
   (
@@ -28,12 +19,12 @@ const SketchCanvas = forwardRef<SketchCanvasRef, SketchCanvasProps>(
       containerStyle,
       children,
       topChildren,
+      isSynced = true,
     },
     frwdRef
   ) => {
     const canvasRef = useCanvasRef();
-    const [, setPathsLength] = useState(0);
-    const paths = useRef<SketchPath[]>([]);
+    const [setPathsLength, paths, forceUpdate] = useSketchPaths(isSynced);
 
     useImperativeHandle(frwdRef, () => ({
       undo: () => {
@@ -85,6 +76,7 @@ const SketchCanvas = forwardRef<SketchCanvasRef, SketchCanvasProps>(
       onActive: ({ x, y }) => {
         paths.current.at(-1)?.path.lineTo(x, y);
       },
+      onEnd: () => forceUpdate(),
     });
 
     return (

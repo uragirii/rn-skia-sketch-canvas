@@ -37,6 +37,7 @@ export interface SketchCanvasProps {
   strokeColor?: Color;
   strokeStyle?: StrokeStyle;
   containerStyle?: StyleProp<ViewStyle>;
+  isSynced?: boolean;
   children?: React.ReactNode;
   topChildren?: React.ReactNode;
 }
