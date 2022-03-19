@@ -1,6 +1,6 @@
 {
   "name": "rn-skia-sketch-canvas",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A React Native component for drawing by touching using Skia renderer",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
