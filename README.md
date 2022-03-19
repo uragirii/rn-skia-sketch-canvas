@@ -3,7 +3,6 @@
 ![main](https://user-images.githubusercontent.com/19703138/159124156-f9d33301-0b49-4644-9cf6-cd80df8a8467.gif)
 ![sync](https://user-images.githubusercontent.com/19703138/159124161-27b379dd-a368-4a7b-9d34-aeebb0e254b5.gif)
 
-
 A React Native component for drawing using Skia renderer. This project is highly influnced by terrylinla's [`react-native-sketch-canvas`](https://github.com/terrylinla/react-native-sketch-canvas). A simple canvas that allows you to draw paths and then export them to images. This project is build on top of `react-native-skia`.
 
 ## Installation
@@ -20,8 +19,8 @@ yarn add rn-skia-sketch-canvas
 - Stroke thickness and color are changable while drawing.
 - Can undo strokes one by one.
 - Export drawing to image (jpg/png/webp).
-- Support for drawing on top of Images/Text
-- Sync 2 or more canvases together
+- Support for drawing on top of Images/Text (See [Docs](./docs/ImageDraw.md))
+- Sync 2 or more canvases together (See [Docs](./docs/Sync.md))
 
 ## Usage
 
@@ -92,8 +91,6 @@ export default App;
 
 ## Todo
 
-- [ ] Write better documentation
-- [ ] Add examples
 - [ ] Allow export to SVG for paths.
 
 ## Contributing
