@@ -69,7 +69,7 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": ">=0.66.2"
   },
   "jest": {
     "preset": "react-native",
@@ -143,5 +143,8 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "@shopify/react-native-skia": "https://github.com/Shopify/react-native-skia/releases/download/v0.1.107-alpha/shopify-react-native-skia-0.1.107.tgz"
   }
 }
