@@ -40,6 +40,7 @@ export interface SketchCanvasProps {
   isSynced?: boolean;
   children?: React.ReactNode;
   topChildren?: React.ReactNode;
+  onPathsLengthChange?: (value: number) => void;
 }
 
 export type StrokeStyle = 'stroke' | 'fill';
